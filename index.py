@@ -33,10 +33,10 @@ class Entity:
     api_token = settings['api_token']
     token_expires = settings['token_expires']
 
-    if(not api_token or not token_expires or token_expires < ts)
+    if(not api_token or not token_expires or token_expires < ts):
 
-        api_access_key = settings["api_access_key"];
-        api_secret_key = settings["api_secret_key"];
+        api_access_key = settings["api_access_key"]
+        api_secret_key = settings["api_secret_key"]
 
         # either access token has not been generated or expired
         if(not api_access_key or  not api_secret_key):
@@ -103,25 +103,25 @@ class Entity_kabaddi(Entity) :
   #status status code 1 = upcoming, 2 = result, 3 = live.
   def get_all_cometition(self ,cid=0,args={}):     
     if(cid):
-        path = 'competition/'+cid+'/info'
+        path = 'competition/'+str(cid)+'/info'
     else:
         path = 'competitions'
         
     return self.api_request(path,args)
   
   def get_competition_matches(self, cid,args={}):
-    path = 'competition/'+cid+'/matches'
+    path = 'competition/'+str(cid)+'/matches'
 
     return self.api_request(path,args)
 
   def get_competition_statstic(self, cid,args={}):
-    path = 'competition/'+cid+'/stats'
+    path = 'competition/'+str(cid)+'/stats'
 
     return self.api_request(path,args)
 
   def get_matches_data(self ,mid=0,args={}):     
     if(mid):
-        path = 'matches/'+mid+'/info'
+        path = 'matches/'+str(mid)+'/info'
     else:
         path = 'matches'
         
@@ -129,26 +129,26 @@ class Entity_kabaddi(Entity) :
   
   #get perticular metches info with stats  , fantacy call get_matches_stats(mid,args)
   def get_matches_stats(self, mid,args={}):
-    path = 'matches/'+mid+'/stats'
+    path = 'matches/'+str(mid)+'/stats'
 
     return self.api_request(path,args)
 
   def get_teams_data(self ,tid=0,args={}):     
     if(tid):
-        path = 'team/'+tid+'/info'
+        path = 'team/'+str(tid)+'/info'
     else:
         path = 'teams'
         
     return self.api_request(path,args)
 
   def get_teams_maches(self, tid,args={}):
-    path = 'team/'+tid+'/matches'
+    path = 'team/'+str(tid)+'/matches'
 
     return self.api_request(path,args)
 
   def get_players_data(self ,pid=0,args={}):     
     if(pid):
-        path = 'player/'+pid+'/profile'
+        path = 'player/'+str(pid)+'/profile'
     else:
         path = 'players'
         
